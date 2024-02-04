@@ -231,7 +231,6 @@ impl<Key: Eq + Hash, Value, BH: BuildHasher> UnorderedHashMap<Key, Value, BH> {
     /// map was used for intermediate processing).
     pub fn iter_sorted_by_key<TargetKey, F>(&self, f: F) -> impl Iterator<Item = (&Key, &Value)>
     where
-        Key: Ord,
         TargetKey: Ord,
         F: FnMut(&(&Key, &Value)) -> TargetKey,
     {
